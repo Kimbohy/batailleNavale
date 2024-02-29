@@ -1,1 +1,1 @@
-g++ -c *.cpp && g++ *.o battleship.out && rm *.o
+g++ -c *.cpp && g++ *.o battleship.out && rm *.o && ./battleship.out
