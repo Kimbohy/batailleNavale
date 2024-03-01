@@ -7,7 +7,7 @@ public:
     int get(char *info) const;
     void setTouched(int n);
     void setBoatPosition();
-    int Boat::getPosition(char info);
+    int getPosition(char info);
 
 private:
     int id{0};
@@ -22,7 +22,7 @@ class Map
 {
 public:
     Map();
-    void boatAdd(int id, int orientation,int headX, int headY);
+    void boatAdd(Boat bt);
 
 private:
     int map[10][10] = {0};

@@ -12,6 +12,11 @@ int Boat::get(char *info) const
         return size;
 }
 
+/*
+    a fonction who return the position information of a boat
+    y to return headY
+    x to return headX
+*/
 int Boat::getPosition(char info)
 {
     if (info == 'y')
@@ -105,34 +110,34 @@ int setOrientation(int x, int y, int size, int headY, int headX)
     }
 }
 
-// add the boat to the map
-void Map::boatAdd(int id, int orientation, int headX, int headY)
+// add the boat (bt) to the map
+void Map::boatAdd(Boat bt)
 {
     int a;
     switch (a)
     {
     case 0:
-        for (int i(0); i < Boat::get("size"); i++)
+        for (int i(0); i < bt.get("size"); i++)
         {
-            map[headY - i][headX] = id;
+            map[bt.getPosition('y') - i][bt.getPosition('x')] = bt.get('id');
         }
         break;
     case 1:
-        for (int i(0); i < Boat::get("size"); i++)
+        for (int i(0); i < bt.get("size"); i++)
         {
-            map[headY + i][headX] = id;
+            map[bt.getPosition('y') + i][bt.getPosition('x')] = bt.get('id');
         }
         break;
     case 2:
-        for (int i(0); i < Boat::get("size"); i++)
+        for (int i(0); i < bt.get("size"); i++)
         {
-            map[headY][headX - i] = id;
+            map[bt.getPosition('y')][bt.getPosition('x') - i] = bt.get('id');
         }
         break;
     case 3:
-        for (int i(0); i < Boat::get("size"); i++)
+        for (int i(0); i < bt.get("size"); i++)
         {
-            map[headY][headX + i] = id;
+            map[bt.getPosition('y')][bt.getPosition('x') + 1] = bt.get('id');
         }
         break;
     }
