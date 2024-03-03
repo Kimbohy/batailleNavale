@@ -18,7 +18,7 @@ int Boat::get(char *info) const
     y to return headY
     x to return headX
 */
-int Boat::getPosition(char info)
+int Boat::getPosition(char info) const
 {
     if (info == 'y')
         return headY;
@@ -48,8 +48,8 @@ int inMap(char *txt)
     return tmp;
 }
 
-// fonction adding a boat to the map
-void Boat::setBoatPosition()
+// fonction adding bot position and orientation
+void Boat::setBoatPosition(Boat bt)
 {
     int tmp;
     cout << "Chouse a boat" << endl;
@@ -69,15 +69,14 @@ void Boat::setBoatPosition()
         if ((headY + 1 >= size) && (10 - (headY + 1)) >= size && (headX + 1 >= size) && (10 - (headX + 1) >= size))
             cout << "impossible, this boat is too big for that possition" << endl;
     }
-    cout << "orientation (North = 0, South = 1, West = 2, East = 3)" << endl;
-    cin >> orientation;
+    orientation = setOrientation(bt);
 }
 
 // orrientation error gestion
 int setOrientation(Boat bt)
 {
     int o;
-    cout << "orientation: " << endl;
+    cout << "orientation (North = 0, South = 1, West = 2, East = 3): " << endl;
     cin >> o;
     switch (o)
     {

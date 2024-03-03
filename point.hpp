@@ -3,11 +3,15 @@
 class Boat
 {
 public:
+    //constructeurs:
     Boat();
+    Boat(int, int, int, int, int);
+    //accessor:
     int get(char *info) const;
+    int getPosition(char info) const;
+    //setor:
     void setTouched(int n);
-    void setBoatPosition();
-    int getPosition(char info);
+    void setBoatPosition(Boat bt);
 
 private:
     int id{0};
