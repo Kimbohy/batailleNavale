@@ -18,6 +18,9 @@ private:
     int touched{0};
 };
 
+// listage dea bateau par un vecteur
+vector<Boat> boatList{};
+
 class Map
 {
 public:
@@ -28,7 +31,7 @@ private:
     int map[10][10] = {0};
 };
 
-int in(char *txt);
-int setOrientation(int x, int y, int size);
+int inMap(char *txt);
+int setOrientation(Boat bt);
 
 #endif

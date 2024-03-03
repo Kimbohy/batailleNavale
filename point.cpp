@@ -1,5 +1,6 @@
 #include "point.hpp"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -33,8 +34,8 @@ void Boat::setTouched(int n)
     touched++;
 }
 
-// error gestion for Boat.setBoatPosition
-int in(char *txt)
+// error gestion for Boat.setBoatPosition (test ande add the position if the position is insaid of the map)
+int inMap(char *txt)
 {
     int tmp(0);
     do
@@ -53,18 +54,18 @@ void Boat::setBoatPosition()
     int tmp;
     cout << "Chouse a boat" << endl;
     cin >> id; // we need to change something beacause we want to get the boat withe that id, not set a new id
-    headX = in("position line:");
-    headY = in("position row:");
+    headX = inMap("position line:");
+    headY = inMap("position row:");
     for (int i = 0; i < 3; i++)
     {
         if (headY + 1 >= size)
-            cout << '0';
+            cout << "0 (North)";
         if (10 - (headY + 1) >= size)
-            cout << '1';
+            cout << "1 (South)";
         if (headX + 1 >= size)
-            cout << '2';
+            cout << "2 (West)";
         if (10 - (headX + 1) >= size)
-            cout << '3';
+            cout << "3 (East)";
         if ((headY + 1 >= size) && (10 - (headY + 1)) >= size && (headX + 1 >= size) && (10 - (headX + 1) >= size))
             cout << "impossible, this boat is too big for that possition" << endl;
     }
@@ -73,7 +74,7 @@ void Boat::setBoatPosition()
 }
 
 // orrientation error gestion
-int setOrientation(int x, int y, int size, int headY, int headX)
+int setOrientation(Boat bt)
 {
     int o;
     cout << "orientation: " << endl;
@@ -81,31 +82,36 @@ int setOrientation(int x, int y, int size, int headY, int headX)
     switch (o)
     {
     case 0:
-        if (headY + 1 >= size)
+        if (bt.getPosition('y') + 1 >= bt.get("size"))
             return o;
         else
             cout << "unexpected valiu, the place isn't enough" << endl;
+        return setOrientation(bt);
         break;
     case 1:
-        if (10 - (headY + 1) >= size)
+        if (10 - (bt.getPosition('y') + 1) >= bt.get("size"))
             return o;
         else
             cout << "unexpected valiu, the place isn't enough" << endl;
+        return setOrientation(bt);
         break;
     case 2:
-        if (headX + 1 >= size)
+        if (bt.getPosition('x') + 1 >= bt.get("size"))
             return o;
         else
             cout << "unexpected valiu, the place isn't enough" << endl;
+        return setOrientation(bt);
         break;
     case 3:
-        if (10 - (headX + 1) >= size)
+        if (10 - (bt.getPosition('x') + 1) >= bt.get("size"))
             return o;
         else
             cout << "unexpected valiu, the place isn't enough" << endl;
+        return setOrientation(bt);
         break;
     default:
         cout << "unexpected valiu" << endl;
+        return setOrientation(bt);
         break;
     }
 }
@@ -113,31 +119,31 @@ int setOrientation(int x, int y, int size, int headY, int headX)
 // add the boat (bt) to the map
 void Map::boatAdd(Boat bt)
 {
-    int a;
+    int a = bt.getPosition('p');
     switch (a)
     {
     case 0:
         for (int i(0); i < bt.get("size"); i++)
         {
-            map[bt.getPosition('y') - i][bt.getPosition('x')] = bt.get('id');
+            map[bt.getPosition('y') - i][bt.getPosition('x')] = bt.get("id");
         }
         break;
     case 1:
         for (int i(0); i < bt.get("size"); i++)
         {
-            map[bt.getPosition('y') + i][bt.getPosition('x')] = bt.get('id');
+            map[bt.getPosition('y') + i][bt.getPosition('x')] = bt.get("id");
         }
         break;
     case 2:
         for (int i(0); i < bt.get("size"); i++)
         {
-            map[bt.getPosition('y')][bt.getPosition('x') - i] = bt.get('id');
+            map[bt.getPosition('y')][bt.getPosition('x') - i] = bt.get("id");
         }
         break;
     case 3:
         for (int i(0); i < bt.get("size"); i++)
         {
-            map[bt.getPosition('y')][bt.getPosition('x') + 1] = bt.get('id');
+            map[bt.getPosition('y')][bt.getPosition('x') + 1] = bt.get("id");
         }
         break;
     }
