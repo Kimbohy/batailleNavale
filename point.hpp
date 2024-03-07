@@ -7,19 +7,22 @@ public:
     Boat();
     Boat(int, int, int, int, int);
     //accessor:
-    int get(char *info) const;
-    int getPosition(char info) const;
+    int getId() const;
+    int getSize() const;
+    int getOrientation() const;
+    int getHeadX() const;
+    int getHeadY() const;
     //setor:
     void setTouched(int n);
     void setBoatPosition(Boat bt);
 
 private:
-    int id{0};
-    int size{0};
-    int orientation{0}; // North = 0, South = 1, West = 2, East = 3
-    int headX{0};
-    int headY{0};
-    int touched{0};
+    int Id{0};
+    int Size{0};
+    int Orientation{0}; // North = 0, South = 1, West = 2, East = 3
+    int HeadX{0};
+    int HeadY{0};
+    int Touched{0};
 };
 
 // listage dea bateau par un vecteur
@@ -32,7 +35,7 @@ public:
     void boatAdd(Boat bt);
 
 private:
-    int map[10][10] = {0};
+    int Mp[10][10] = {0};
 };
 
 int inMap(char *txt);
