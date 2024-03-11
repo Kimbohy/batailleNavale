@@ -4,13 +4,34 @@
 
 using namespace std;
 
-// add one touched boat section
+// geter
+int Boat::getId() const {
+    return Id;
+}
+
+int Boat::getSize() const {
+    return Size;
+}
+
+int Boat::getOrientation() const {
+    return Orientation;
+}
+
+int Boat::getHeadX() const {
+    return HeadX;
+}
+
+int Boat::getHeadY() const {
+    return HeadY;
+}
+
+// add one Touched boat section
 void Boat::setTouched(int n)
 {
     Touched++;
-}
+} 
 
-// error gestion for Boat.setBoatPosition (test ande add the position if the position is insaid of the Mp)
+// error gestion for Boat.setBoatPosition (test ande add the position if the position is insaId of the Mp)
 int inMap(char *txt)
 {
     int tmp(0);
@@ -24,12 +45,12 @@ int inMap(char *txt)
     return tmp;
 }
 
-// fonction adding bot position and orientation
+// fonction adding bot position and Orientation
 void Boat::setBoatPosition(Boat bt)
 {
     int tmp;
     cout << "Chouse a boat" << endl;
-    cin >> Id; // we need to change something beacause we want to get the boat withe that id, not set a new id
+    cin >> Id; // we need to change something beacause we want to get the boat withe that Id, not set a new Id
     HeadX = inMap("position line:");
     HeadY = inMap("position row:");
     for (int i = 0; i < 3; i++)
@@ -52,7 +73,7 @@ void Boat::setBoatPosition(Boat bt)
 int setOrientation(Boat bt)
 {
     int o;
-    cout << "orientation (North = 0, South = 1, West = 2, East = 3): " << endl;
+    cout << "Orientation (North = 0, South = 1, West = 2, East = 3): " << endl;
     cin >> o;
     switch (o)
     {
