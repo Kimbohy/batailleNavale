@@ -3,16 +3,16 @@
 class Boat
 {
 public:
-    //constructeurs:
+    // constructeurs:
     Boat();
     Boat(int, int, int, int, int);
-    //accessor:
+    // accessor:
     int getId() const;
     int getSize() const;
     int getOrientation() const;
     int getHeadX() const;
     int getHeadY() const;
-    //setor:
+    // setor:
     void setTouched(int n);
     void setBoatPosition(Boat bt);
 
@@ -26,7 +26,7 @@ private:
 };
 
 // listage dea bateau par un vecteur
-vector<Boat> boatList{};
+vector<Boat> boatList{1, 1, 1, 1};
 
 class Map
 {
