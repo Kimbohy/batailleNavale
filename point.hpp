@@ -15,7 +15,7 @@ public:
     // setor:
     void setTouched(int n);
     void setBoatPosition(Boat bt);
-
+    bool boatSatus();
 private:
     int Id{0};
     int Size{0};
@@ -25,17 +25,25 @@ private:
     int Touched{0};
 };
 
-// listage dea bateau par un vecteur
-vector<Boat> boatList{1, 1, 1, 1};
-
 class Map
 {
 public:
     Map();
     void boatAdd(Boat bt);
-
+    void targetInfo(int y, int x);
 private:
     int Mp[10][10] = {0};
+};
+
+class Player{
+public:
+    Player(); //creat a bot player
+    Player(std::string name); //creat a player with a name
+    void boatInit();//!creat a vector to init all boat!
+    void mapInit();//!creat a map for this player!
+private:
+    std::string Name;
+    bool playerType; // true if real player and false if bot
 };
 
 int inMap(char *txt);
