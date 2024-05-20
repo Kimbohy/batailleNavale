@@ -15,33 +15,9 @@ The Battleship game is a classic strategy game where players take turns guessing
 - Hit and miss tracking
 - Victory condition detection
 
-## Installation
-
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/your-username/battleship.git
-    ```
-
-2. Navigate to the project directory:
-
-    ```bash
-    cd battleship
-    ```
-
-3. Install the required dependencies:
-
-    ```bash
-    npm install
-    ```
-
 ## Usage
 
 1. Start the game:
-
-    ```bash
-    npm start
-    ```
 
 2. Follow the on-screen instructions to play the game.
 
