@@ -1,0 +1,29 @@
+
+Objectif final :
+- Deux types de joueurs : un bot et un joueur réel.
+- Chaque joueur possède sa propre carte de 10x10 cases. 
+- Bateaux disponibles pour chaque joueur : 
+  - 1 porte-avions (5 cases)
+  - 1 croiseur (4 cases)
+  - 2 contre-torpilleurs (3 cases)
+  - 1 torpilleur (2 cases)
+- Attaques basées sur des coordonnées avec retour d'information (touché, raté, coulé).
+- Design et implémentation graphique du jeu.
+- Un joueur gagne lorsque l'autre joueur n'a plus de bateaux ou que celui-ci a abandonné.
+- Si la partie oppose deux joueurs réels sur un même appareil, une transition d'écran aura lieu entre les tours.
+
+Possibilités :
+- Possibilité d'avoir plus de 2 joueurs.
+- Multijoueur en réseau.
+- Personnalisation de la taille et du nombre de bateaux.
+- ajous de nouvelle regle et fonctionaliter dans un mode spetial: 
+    - Des sonde 
+    - Deplacement d'un bateau
+    - Interseption d'un tir
+    - ...
+
+fonctionement de la map
+
+  0 si vide
+  id du bateau si le bateauest dans la zonne
+  -1 si dejat toucher par un tir
