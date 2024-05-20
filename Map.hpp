@@ -8,7 +8,7 @@ class Map
 public:
     Map();
     void boatAdd(Boat bt);
-    void targetInfo(int y, int x);
+    std::string targetInfo(int y, int x);
 
 private:
     int Mp[10][10] = {0};

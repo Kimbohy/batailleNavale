@@ -14,7 +14,8 @@ public:
     int getHeadY() const;
     // setor:
     void setHit(int n);
-    void setBoatPosition(Boat bt);
+    void setBoatPosition();
+    int initOrientation(); // return the orientation of the boat by the user input
     bool boatSatus();
 
 private:
